@@ -63,14 +63,22 @@ class Carousel {
     this.prev = document.createElement('span');
     this.prev.classList.add('carousel-prev');
     this.prev.textContent = '❮';
-    this.prev.addEventListener('mousedown', () => this.scrollPrev());
-    this.prev.addEventListener('touchstart', () => this.scrollPrev());
+    this.prev.addEventListener('click', () => this.scrollPrev());
+    // this.prev.addEventListener('touchstart', (e) => this.startTouchScroll(e), { passive: false });
     this.next = document.createElement('span');
     this.next.classList.add('carousel-next');
     this.next.textContent = '❯';
     this.next.style.right = 100 - (100 / this.images.length) + '%';
-    this.next.addEventListener('mousedown', () => this.scrollNext());
-    this.next.addEventListener('touchstart', () => this.scrollNext());
+    this.next.addEventListener('click', () => this.scrollNext());
+    // passthrough touch events to carousel
+    if (typeof TouchEvent === 'function') { // on supported browsers
+      [this.prev, this.next].forEach(elem => {
+        ['touchstart', 'touchmove', 'touchend'].forEach(eventType => {
+          elem.addEventListener(eventType, e =>
+                                this.element.dispatchEvent(new TouchEvent(e.type, e)));
+        });
+      });
+    }
     this.container.appendChild(this.prev);
     this.container.appendChild(this.next);
     const indicatorsSpan = document.createElement('span');
@@ -138,7 +146,7 @@ class Carousel {
     });
     const touchMove = ((event) => {
       // prevent back/forward on mobile swipe, prevent default vertical scroll
-      event.preventDefault();
+      if (event.cancelable) { event.preventDefault(); }
       const touchLoc = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
       this.delta = this.lastLoc.x - touchLoc.x;
       this.scrollBy(this.delta);
