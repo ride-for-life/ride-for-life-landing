@@ -6,16 +6,10 @@ class Carousel {
     this.container.style.width = 100 * this.images.length + '%';
     this.imageContainers = this.element.querySelectorAll('.carousel-img-container');
     this.imageContainers.forEach(i => i.style.width = 100 / this.images.length + '%');
-    // this.imageContainers.forEach((i, idx) => i.style.zIndex = idx);
-    // this.imageContainers.forEach(i => i.style.minWidth = 100 / this.images.length + '%');
-    // this.images.forEach(i => i.style.width = 100 / this.images.length + '%');
     this.offset = this.minOffset();
     this.touchOrigin = 0;
     this.velocity = 0;
-
     this.initButtons();
-    // TODO Unify mouse and touch? See tutsplus?
-    // TODO Decide when buttons appear
 
     this.resizeLock = false;
     window.addEventListener('resize', () => {
@@ -24,7 +18,6 @@ class Carousel {
         this.element.classList.remove('carousel-snap');
         setTimeout(() => {
           this.setOffset(Math.round(this.offset / this.imageWidth()) * this.imageWidth());
-          this.scrollToOffset();
           this.resizeLock = false;
         }, 150);
       }
@@ -38,19 +31,20 @@ class Carousel {
   }
   maxOffset() {
     return this.imageWidth() * (this.imageContainers.length - 1);
-    // return this.images[this.images.length - 1].x - this.images[0].x;
-    // return this.imageContainers[this.imageContainers.length - 1].x - this.imageContainers[0].x;
   }
   minOffset() {
     return 0;
   }
+
+  closestIndex() {
+    return Math.round(this.offset / this.imageWidth());
+  }
+
   setOffset(offset) {
     offset = Math.max(offset, this.minOffset());
     offset = Math.min(offset, this.maxOffset());
     this.offset = offset;
-  }
-  closestIndex() {
-    return Math.round(this.offset / this.imageWidth());
+    this.element.style.transform = 'translateX(' + -this.offset + 'px)';
   }
 
   scrollNext() {
@@ -90,6 +84,7 @@ class Carousel {
     this.container.appendChild(indicatorsSpan);
     this.indicators[0].classList.add('carousel-indicator-show');
   }
+
   updateIndicator() {
     const closestIndex = this.closestIndex();
     if (!this.indicators[closestIndex].classList.contains('carousel-indicator-show')) {
@@ -111,22 +106,15 @@ class Carousel {
     else {
       this.setOffset(this.imageWidth() * closestIndex);
     }
-    this.scrollToOffset();
     this.updateIndicator();
-  }
-
-  scrollToOffset() {
-    this.element.style.transform = 'translateX(' + -this.offset + 'px)';
   }
 
   scrollToIndex(index) {
     this.setOffset(this.imageWidth() * index);
-    this.scrollToOffset();
   }
 
   scrollBy(delta) {
     this.setOffset(this.offset + delta);
-    this.scrollToOffset();
   }
 
   startTouchScroll(event) {
