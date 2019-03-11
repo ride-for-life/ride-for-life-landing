@@ -157,5 +157,11 @@ class Carousel {
   }
 }
 
+// Initialize carousels
 const carousels = document.querySelectorAll('.carousel-container');
 carousels.forEach(carousel => new Carousel(carousel));
+
+// Lazy image loading
+var lazyLoadInstance = new LazyLoad({
+    elements_selector: "img"
+});
