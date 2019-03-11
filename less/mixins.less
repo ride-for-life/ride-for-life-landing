@@ -1,0 +1,47 @@
+.button(@bg-color: @forest, @color: @white) {
+  color: @color;
+  background-color: @bg-color;
+  // background-image: linear-gradient(@bg-color 0%, @bg-color 60%, darken(@bg-color, 10%) 100%);
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.0rem;
+  font-weight: bold;
+  border: 3px solid @bg-color;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px lighten(@bg-color, 5%);
+  // transition: box-shadow 0.3s;
+
+  @media @tablet {
+    font-size: 1.4rem;
+    padding: 14px 30px;
+  }
+  &:hover {
+    color: @bg-color;
+    background-color: @color;
+    box-shadow: inset 0 0 0 @bg-color;
+    background-image: none;
+    // background-position: right center;
+    // box-shadow: inset 0 -10px 50px fade(@color, 20%);
+  }
+
+  // &::before {
+  //   content: "";
+  //   // background-image: linear-gradient(rgba(0,0,0,0), lighten(@bg-color, 5%));
+  //   color: blue;
+  //   height: 100%;
+  //   width: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   opacity: 1;
+  //   z-index: 100;
+  // }
+
+  // &:hover::before, &:focus::before {
+  //   opacity: 1;
+  //   // color: @bg-color;
+  //   // background-color: @color;
+  //   // background-image: linear-gradient(@bg-color, lighten(@bg-color, 5%));
+  // }
+}
