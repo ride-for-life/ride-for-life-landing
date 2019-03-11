@@ -63,12 +63,14 @@ class Carousel {
     this.prev = document.createElement('span');
     this.prev.classList.add('carousel-prev');
     this.prev.textContent = '❮';
-    this.prev.addEventListener('click', () => this.scrollPrev());
+    this.prev.addEventListener('mousedown', () => this.scrollPrev());
+    this.prev.addEventListener('touchstart', () => this.scrollPrev());
     this.next = document.createElement('span');
     this.next.classList.add('carousel-next');
     this.next.textContent = '❯';
     this.next.style.right = 100 - (100 / this.images.length) + '%';
-    this.next.addEventListener('click', () => this.scrollNext());
+    this.next.addEventListener('mousedown', () => this.scrollNext());
+    this.next.addEventListener('touchstart', () => this.scrollNext());
     this.container.appendChild(this.prev);
     this.container.appendChild(this.next);
     const indicatorsSpan = document.createElement('span');
