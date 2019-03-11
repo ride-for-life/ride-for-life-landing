@@ -7,8 +7,8 @@ class Carousel {
     this.imageContainers = this.element.querySelectorAll('.carousel-img-container');
     this.imageContainers.forEach(i => i.style.width = 100 / this.images.length + '%');
     this.offset = this.minOffset();
-    this.touchOrigin = 0;
-    this.velocity = 0;
+    this.touchOrigin = { x: 0, y:  0};
+    this.delta = 0;
     this.initButtons();
 
     this.resizeLock = false;
@@ -100,10 +100,10 @@ class Carousel {
     const closestIndex = this.closestIndex();
     const distance = this.offset - (closestIndex * this.imageWidth());
     if (Math.abs(distance) >= this.imageWidth() / 5 ) {
-      this.setOffset(this.imageWidth() * (closestIndex + (this.touchOrigin - this.lastLoc > 0 ? 1 : -1)));
-    } else if (Math.abs(this.velocity) > 20 && Math.sign(this.velocity) * Math.sign(distance) >= 0) {
+      this.setOffset(this.imageWidth() * (closestIndex + (this.touchOrigin.x - this.lastLoc.x > 0 ? 1 : -1)));
+    } else if (Math.abs(this.delta) > 20 && Math.sign(this.delta) * Math.sign(distance) >= 0) {
       // sign check makes sure we don't jump over an image on an aggressive scroll
-      this.setOffset(this.imageWidth() * (closestIndex + (this.velocity > 0 ? 1 : -1)));
+      this.setOffset(this.imageWidth() * (closestIndex + (this.delta > 0 ? 1 : -1)));
     }
     else {
       this.setOffset(this.imageWidth() * closestIndex);
@@ -121,19 +121,27 @@ class Carousel {
 
   startTouchScroll(event) {
     this.element.classList.remove('carousel-snap');
-    this.touchOrigin = event.touches[0].pageX;
+    this.touchOrigin = {x: event.touches[0].pageX, y: event.touches[0].pageY};
     this.lastLoc = this.touchOrigin;
     const stopTouchScroll = ((event) => {
       this.element.removeEventListener('touchend', stopTouchScroll);
       this.element.removeEventListener('touchmove', touchMove);
       this.snapToImage();
+      // scroll vertically only when there is more vertical than horizontal movement
+      const distanceY = (this.touchOrigin.y - this.lastLoc.y);
+      if (Math.abs(distanceY) > Math.abs(this.touchOrigin.x - this.lastLoc.x)) {
+        window.scrollBy({
+          top: Math.sign(distanceY) * Math.abs(distanceY) ** 1.3,
+          behavior: 'smooth'
+        });
+      }
     });
     const touchMove = ((event) => {
-      // prevent back/forward on mobile swipe
+      // prevent back/forward on mobile swipe, prevent default vertical scroll
       event.preventDefault();
-      const touchLoc = event.changedTouches[0].pageX;
-      this.velocity = this.lastLoc - touchLoc;
-      this.scrollBy(this.velocity);
+      const touchLoc = { x: event.changedTouches[0].pageX, y: event.changedTouches[0].pageY};
+      this.delta = this.lastLoc.x - touchLoc.x;
+      this.scrollBy(this.delta);
       this.lastLoc = touchLoc;
     });
     this.element.addEventListener('touchend', stopTouchScroll);
