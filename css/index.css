@@ -387,6 +387,51 @@ a.safe-logo::before {
   margin-right: 5px;
   vertical-align: middle;
 }
+.container.fourohfour .content {
+  height: 800px;
+}
+.container.fourohfour a.home {
+  color: #FFFFFF;
+  background-color: #78849E;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+  border: 3px solid #78849E;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px #8792a9;
+  box-sizing: border-box;
+  vertical-align: middle;
+  width: 400px;
+  max-width: 100%;
+  height: 60px;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  margin: 20px 0;
+}
+@media (min-width: 550px) {
+  .container.fourohfour a.home {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    padding: 14px 30px;
+  }
+}
+.container.fourohfour a.home:hover {
+  color: #78849E;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 #78849E;
+  background-image: none;
+}
+@media (min-width: 300px) {
+  .container.fourohfour a.home {
+    height: 80px;
+    font-size: 1.6rem;
+    line-height: 3.2rem;
+  }
+}
 .container.home .cta .cta-buttons {
   display: flex;
   flex-direction: column-reverse;
