@@ -1,0 +1,186 @@
+.container.about {
+  h1, h2 {
+    border-bottom: 2px solid @thunderhead;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    width: 60%;
+  }
+  h2 {
+    padding-bottom: 10px;
+  }
+  .cta {
+    padding-left: 30px;
+    padding-right: 30px;
+    h1 {
+      border-bottom: 2px solid @thunderhead;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      width: 60%;
+    }
+    h2 {
+      width: 50%;
+      padding-top: 20px;
+    }
+    p {
+      text-align: left;
+      padding-bottom: 10px;
+      color: @evening;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      @media @tablet {
+        font-size: 1.4rem;
+      }
+    }
+
+    a.how-it-works {
+      .button-large(@thunderhead, @white);
+    }
+    a.learn-more {
+      .button-large(@evening, @white);
+    }
+    a.sign-up {
+      .button-large(@forest, @white);
+    }
+  }
+  .content {
+    .people {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 50px;
+      .person {
+        @person-image-size: 140px;
+        @person-background-color: @white;
+        @person-line-color: @thunderhead;
+        @person-line-width: 2px;
+        align-self: flex-start;
+        margin-top: @person-image-size;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        background-color: @person-background-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border-top: solid 20px @white;
+        border-bottom: 2px solid @thunderhead; 
+        box-shadow: 0px 0px 10px fade(@evening, 5%);
+        transition: box-shadow 0.5s;
+        border-radius: 20px;
+        z-index: 0;
+        position: relative;
+        &:hover, &:focus {
+          box-shadow: 0px 0px 10px fade(@evening, 20%);
+        }
+        img {
+          width: (@person-image-size + 15);
+          height: (@person-image-size + 15);
+          border-radius: 100%;
+          position: absolute;
+          top: -(@person-image-size - 43);
+        }
+        .person-img-decoration {
+          box-shadow: 0px 0px 10px fade(@evening, 5%);
+          background-color: @person-background-color;
+          width: @person-image-size;
+          height: @person-image-size;
+          border-radius: 100%;
+          position: absolute;
+          top: -(@person-image-size - 38);
+          border: 12px solid @person-background-color;
+          // horizontal line
+          &::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            left: -17.5%;
+            width: 135%;
+            height: 7%;
+            z-index: -1;
+            background-color: @person-background-color;
+            border-bottom: solid @person-line-width @thunderhead;
+            @media @mobile {
+              width: 180%;
+              left: -40%;
+            }
+            @media (min-width: 345px) {
+              width: 200%;
+              left: -50%;
+            }
+          }
+          // semicircle
+          &::after {
+            content: "";
+            box-sizing: border-box;
+            position:absolute;
+            top:50%;
+            bottom:0;
+            left: -10%;
+            width: 120%;
+            height: 60%;
+            border-bottom-right-radius: 500px;
+            border-bottom-left-radius: 500px;
+            border: solid @person-line-width @thunderhead;
+            border-top: none;
+            z-index: -2;
+          }
+        }
+        .person-info {
+          margin-top: (@person-image-size / 2);
+          height: 160px;
+          overflow: hidden;
+          margin-bottom: 40px;
+          pointer-events: none;
+          transition: height 0.5s ease-out;
+          &.expanded {
+            &::after {
+              content: "Collapse ⇡";
+            }
+          }
+          &::after {
+            content: "Read More ⇣";
+            box-sizing: border-box;
+            position:absolute;
+            left: 0;
+            width: 100%;
+            bottom: 5px;
+            pointer-events: all;
+            cursor: pointer;
+            color: @thunderhead;
+            font-size: 1.2rem;
+            @media @tablet {
+              font-size: 1.0rem;
+            }
+            // width: 120%;
+            // height: 60%;
+          }
+          h3, h4, h5 {
+            margin: 0;
+            padding: 0;
+            line-height: 1.1;
+          }
+          h4 {
+            font-size: 1.0rem;
+          }
+          h5 {
+            font-size: 0.9rem;
+            font-weight: normal;
+            font-style: italic;
+          }
+          .person-description {
+            padding: 10px 15px 0 15px;
+            p {
+              color: @evening;
+            }
+          }
+        }
+      }
+    }
+  }
+}

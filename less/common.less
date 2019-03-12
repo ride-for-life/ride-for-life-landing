@@ -1,0 +1,121 @@
+body {
+  font-family: Gibson, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: @cloud;
+  .container {
+    overflow-x: hidden;
+    max-width: 880px;
+    margin: auto;
+    .cta {
+      box-sizing: border-box;
+      padding: 20px 20px 20px 20px;
+      background-color: @white;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0px 10px 10px fade(@evening, 5%);
+    }
+    .content {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5%;
+      max-width: 800px;
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  color: @storm;
+  font-size: 2.8rem;
+  font-weight: bold;
+  padding: 10px 0;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3, h4, h5 {
+  font-size: 1.4rem;
+}
+p {
+  color: @thunderhead;
+}
+
+footer {
+  margin-top: -10px;
+  padding: 30px 5%;
+  background-color: @storm;
+  background-image: linear-gradient(180deg, @evening, @storm);
+  border: 1px solid @storm;
+  color: @white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // flex-wrap: wrap;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px -10px 10px fade(@evening, 15%);
+  .footer-info, .footer-address {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    @media @tablet {
+      flex-direction: row;
+    }
+  }
+  .footer-address {
+    margin-top: 30px;
+    padding: 10px;
+    border-top: 1px solid @white;
+    color: @white;
+  }
+  .footer-info {
+    a img {
+      width: 50px;
+      margin-right: 10px;
+      @media @tablet {
+        width: 25px;
+        margin-right: 5px;
+      }
+    }
+  }
+  .footer-safe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: right;
+    margin-bottom: 30px;
+    @media @tablet {
+      margin-bottom: 0;
+    }
+  }
+  .left {
+    margin-bottom: 30px;
+    @media @tablet {
+      margin-bottom: 0;
+    }
+  }
+}
+a.safe-logo {
+  &::before {
+    color: @white;
+    cursor: pointer;
+    content: "SAFE";
+    font-size: 2.0rem;
+    letter-spacing: 0.2rem;
+    border: 1px solid @white;
+    padding: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+}
