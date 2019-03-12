@@ -11,6 +11,12 @@
   .cta {
     padding-left: 30px;
     padding-right: 30px;
+    h1 {
+      border-bottom: 2px solid @thunderhead;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      width: 60%;
+    }
     h2 {
       width: 50%;
       padding-top: 20px;
@@ -19,16 +25,11 @@
       text-align: left;
       padding-bottom: 10px;
       color: @evening;
-    }
-    h1 {
-      border-bottom: 2px solid @thunderhead;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-      width: 60%;
-    }
-    p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 1.2;
+      @media @tablet {
+        font-size: 1.4rem;
+      }
     }
 
     a.how-it-works {
@@ -105,6 +106,10 @@
             background-color: @person-background-color;
             border-bottom: solid @person-line-width @thunderhead;
             @media @mobile {
+              width: 180%;
+              left: -40%;
+            }
+            @media (min-width: 345px) {
               width: 200%;
               left: -50%;
             }
@@ -148,6 +153,10 @@
             pointer-events: all;
             cursor: pointer;
             color: @thunderhead;
+            font-size: 1.2rem;
+            @media @tablet {
+              font-size: 1.0rem;
+            }
             // width: 120%;
             // height: 60%;
           }

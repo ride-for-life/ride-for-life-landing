@@ -509,8 +509,9 @@ a.safe-logo::before {
 }
 @media (min-width: 550px) {
   .container.home .content .cards .card {
+    align-self: stretch;
     width: 40%;
-    height: 250px;
+    height: auto;
     max-width: 500px;
   }
 }
@@ -558,18 +559,18 @@ a.safe-logo::before {
   .container.home .how-it-works .pairs .pair:nth-child(even) {
     flex-direction: row-reverse;
   }
-}
-.container.home .how-it-works .pairs .pair:nth-child(even) .how {
-  flex-direction: row-reverse;
-}
-.container.home .how-it-works .pairs .pair:nth-child(even) .how p {
-  border-left: none;
-  padding-left: none;
-  margin-left: none;
-  border-right: 2px solid #78849E;
-  padding-right: 20px;
-  margin-right: 20px;
-  text-align: right;
+  .container.home .how-it-works .pairs .pair:nth-child(even) .how {
+    flex-direction: row-reverse;
+  }
+  .container.home .how-it-works .pairs .pair:nth-child(even) .how p {
+    border-left: none;
+    padding-left: none;
+    margin-left: none;
+    border-right: 2px solid #78849E;
+    padding-right: 20px;
+    margin-right: 20px;
+    text-align: right;
+  }
 }
 .container.home .how-it-works .pairs .pair .how {
   width: 100%;
@@ -694,6 +695,12 @@ a.safe-logo::before {
   padding-left: 30px;
   padding-right: 30px;
 }
+.container.about .cta h1 {
+  border-bottom: 2px solid #78849E;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+}
 .container.about .cta h2 {
   width: 50%;
   padding-top: 20px;
@@ -702,16 +709,13 @@ a.safe-logo::before {
   text-align: left;
   padding-bottom: 10px;
   color: #555869;
-}
-.container.about .cta h1 {
-  border-bottom: 2px solid #78849E;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  width: 60%;
-}
-.container.about .cta p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.2;
+}
+@media (min-width: 550px) {
+  .container.about .cta p {
+    font-size: 1.4rem;
+  }
 }
 .container.about .cta a.how-it-works {
   color: #FFFFFF;
@@ -903,6 +907,12 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.about .content .people .person .person-img-decoration::before {
+    width: 180%;
+    left: -40%;
+  }
+}
+@media (min-width: 345px) {
+  .container.about .content .people .person .person-img-decoration::before {
     width: 200%;
     left: -50%;
   }
@@ -943,6 +953,12 @@ a.safe-logo::before {
   pointer-events: all;
   cursor: pointer;
   color: #78849E;
+  font-size: 1.2rem;
+}
+@media (min-width: 550px) {
+  .container.about .content .people .person .person-info::after {
+    font-size: 1rem;
+  }
 }
 .container.about .content .people .person .person-info h3,
 .container.about .content .people .person .person-info h4,

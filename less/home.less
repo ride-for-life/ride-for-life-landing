@@ -61,8 +61,9 @@
           color: @evening;
         }
         @media @tablet {
+          align-self: stretch;
           width: 40%;
-          height: 250px;
+          height: auto;
           max-width: 500px;
         }
       }
@@ -107,17 +108,17 @@
         &:nth-child(even) {
           @media @tablet {
             flex-direction: row-reverse;
-          }
-          .how {
-            flex-direction: row-reverse;
-            p {
-              border-left: none;
-              padding-left: none;
-              margin-left: none;
-              border-right: 2px solid @thunderhead;
-              padding-right: 20px;
-              margin-right: 20px;
-              text-align: right;
+            .how {
+              flex-direction: row-reverse;
+              p {
+                border-left: none;
+                padding-left: none;
+                margin-left: none;
+                border-right: 2px solid @thunderhead;
+                padding-right: 20px;
+                margin-right: 20px;
+                text-align: right;
+              }
             }
           }
         }
