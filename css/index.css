@@ -309,14 +309,42 @@ footer {
   border: 1px solid #454F63;
   color: #FFFFFF;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   box-shadow: 0px -10px 10px rgba(85, 88, 105, 0.15);
 }
-footer .left {
+footer .footer-info,
+footer .footer-address {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 550px) {
+  footer .footer-info,
+  footer .footer-address {
+    flex-direction: row;
+  }
+}
+footer .footer-address {
+  margin-top: 30px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+  color: #FFFFFF;
+}
+footer .footer-info a img {
+  width: 50px;
+  margin-right: 10px;
+}
+@media (min-width: 550px) {
+  footer .footer-info a img {
+    width: 25px;
+    margin-right: 5px;
+  }
+}
+footer .footer-safe {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -324,12 +352,18 @@ footer .left {
   text-align: right;
   margin-bottom: 30px;
 }
-footer address {
-  margin-top: 30px;
-  padding: 10px;
-  border-top: 1px solid #FFFFFF;
-  width: 100%;
-  color: #FFFFFF;
+@media (min-width: 550px) {
+  footer .footer-safe {
+    margin-bottom: 0;
+  }
+}
+footer .left {
+  margin-bottom: 30px;
+}
+@media (min-width: 550px) {
+  footer .left {
+    margin-bottom: 0;
+  }
 }
 a.safe-logo::before {
   color: #FFFFFF;
@@ -381,7 +415,7 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -394,7 +428,7 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.home .cta .cta-buttons .signup {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -416,7 +450,7 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #78849E;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -428,7 +462,7 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.home .cta .cta-buttons .login {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -606,14 +640,14 @@ a.safe-logo::before {
   min-height: 100%;
   min-width: 100%;
 }
-.container.home button.request {
+.container.home a.request {
   color: #FFFFFF;
   background-color: #4C6A2D;
   padding: 12px 20px;
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -625,24 +659,26 @@ a.safe-logo::before {
   max-width: 100%;
   height: 80px;
   font-size: 1.2rem;
+  line-height: 2.4rem;
   margin: 20px 0;
 }
 @media (min-width: 550px) {
-  .container.home button.request {
+  .container.home a.request {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
-.container.home button.request:hover {
+.container.home a.request:hover {
   color: #4C6A2D;
   background-color: #FFFFFF;
   box-shadow: inset 0 0 0 #4C6A2D;
   background-image: none;
 }
 @media (min-width: 300px) {
-  .container.home button.request {
+  .container.home a.request {
     font-size: 1.6rem;
+    line-height: 3.2rem;
   }
 }
 .container.about h1,
@@ -701,7 +737,7 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #78849E;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -719,7 +755,7 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.about .cta a.how-it-works {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -742,7 +778,7 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #555869;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -760,7 +796,7 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.about .cta a.learn-more {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -783,7 +819,7 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -801,7 +837,7 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.about .cta a.sign-up {
     font-size: 1.4rem;
-    line-height: 2.8rem;
+    line-height: 2rem;
     padding: 14px 30px;
   }
 }
