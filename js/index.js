@@ -165,3 +165,21 @@ carousels.forEach(carousel => new Carousel(carousel));
 var lazyLoadInstance = new LazyLoad({
     elements_selector: "img"
 });
+
+// about person expand/contract
+const personInfos = document.querySelectorAll('.people .person .person-info');
+personInfos.forEach(elem => {
+    let expanded = false;
+    elem.addEventListener('click', () => {
+        if (expanded) {
+            elem.style.height = elem.scrollHeight + 'px';
+            elem.classList.remove('expanded');
+            setTimeout(() => elem.style.height = null, 20);
+        } else {
+            elem.style.height = elem.scrollHeight + 'px';
+            elem.addEventListener('transitionend', () => {if (expanded) elem.style.height = 'auto';});
+            elem.classList.add('expanded');
+        }
+        expanded = !expanded;
+    });
+});

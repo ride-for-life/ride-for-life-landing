@@ -246,10 +246,101 @@ a:hover {
   opacity: 1;
   background: #FFFFFF;
 }
-.container.home {
+body {
+  font-family: Gibson, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: #F7F7FA;
+}
+body .container {
   overflow-x: hidden;
   max-width: 880px;
   margin: auto;
+}
+body .container .cta {
+  box-sizing: border-box;
+  padding: 20px 20px 20px 20px;
+  background-color: #FFFFFF;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 10px 10px rgba(85, 88, 105, 0.05);
+}
+body .container .content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  max-width: 800px;
+  text-align: center;
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #454F63;
+  font-size: 2.8rem;
+  font-weight: bold;
+  padding: 10px 0;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3,
+h4,
+h5 {
+  font-size: 1.4rem;
+}
+p {
+  color: #78849E;
+}
+footer {
+  margin-top: -10px;
+  padding: 30px 5%;
+  background-color: #454F63;
+  background-image: linear-gradient(180deg, #555869, #454F63);
+  border: 1px solid #454F63;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px -10px 10px rgba(85, 88, 105, 0.15);
+}
+footer .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+  margin-bottom: 30px;
+}
+footer address {
+  margin-top: 30px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+  width: 100%;
+  color: #FFFFFF;
+}
+a.safe-logo::before {
+  color: #FFFFFF;
+  cursor: pointer;
+  content: "SAFE";
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  border: 1px solid #FFFFFF;
+  padding: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 .container.home .carousel-container {
   height: 300px;
@@ -263,34 +354,6 @@ a:hover {
   .container.home .carousel-container {
     height: 500px;
   }
-}
-.container.home h1 {
-  color: #454F63;
-  font-size: 2.8rem;
-  font-weight: bold;
-  padding: 10px 0;
-}
-.container.home h2 {
-  color: #454F63;
-  font-size: 1.8rem;
-  font-weight: bold;
-  padding: 10px 0;
-}
-.container.home p {
-  color: #78849E;
-}
-.container.home .cta {
-  box-sizing: border-box;
-  padding: 20px 20px 20px 20px;
-  background-color: #FFFFFF;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0px 10px 10px rgba(85, 88, 105, 0.05);
 }
 .container.home .cta .cta-buttons {
   display: flex;
@@ -366,17 +429,6 @@ a:hover {
   background-color: #FFFFFF;
   box-shadow: inset 0 0 0 #78849E;
   background-image: none;
-}
-.container.home .content {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5%;
-  max-width: 800px;
-  text-align: center;
-  line-height: 1.5;
 }
 .container.home .content .cards {
   display: flex;
@@ -581,49 +633,178 @@ a:hover {
     font-size: 1.6rem;
   }
 }
-.container.home footer {
-  margin-top: -10px;
-  padding: 30px 5%;
-  background-color: #454F63;
-  background-image: linear-gradient(180deg, #555869, #454F63);
-  border: 1px solid #454F63;
-  color: #FFFFFF;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  box-shadow: 0px -10px 10px rgba(85, 88, 105, 0.15);
+.container.about h1,
+.container.about h2 {
+  border-bottom: 2px solid #78849E;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 60%;
 }
-.container.home footer .left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: right;
-  margin-bottom: 30px;
+.container.about h2 {
+  padding-bottom: 10px;
 }
-.container.home footer address {
-  margin-top: 30px;
-  padding: 10px;
-  border-top: 1px solid #FFFFFF;
+.container.about .cta {
+  padding-top: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.container.about .cta h2 {
+  width: 50%;
+  padding-top: 20px;
+}
+.container.about .cta p {
+  text-align: left;
+  padding-bottom: 10px;
+  color: #555869;
+}
+.container.about .cta img {
+  box-shadow: 0px 0px 5px #555869;
+  height: 300px;
+  margin-bottom: 20px;
+}
+@media (min-width: 300px) {
+  .container.about .cta img {
+    height: 400px;
+  }
+}
+@media (min-width: 550px) {
+  .container.about .cta img {
+    height: 500px;
+  }
+}
+.container.about .cta h1 {
+  border-bottom: 2px solid #78849E;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+}
+.container.about .cta p {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.container.about .content .people {
   width: 100%;
-  color: #FFFFFF;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 50px;
 }
-.container.home a.safe-logo::before {
-  color: #FFFFFF;
+.container.about .content .people .person {
+  align-self: flex-start;
+  margin-top: 140px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: solid 20px #FFFFFF;
+  border-bottom: 2px solid #78849E;
+  box-shadow: 0px 0px 10px rgba(85, 88, 105, 0.05);
+  transition: box-shadow 0.5s;
+  border-radius: 20px;
+  z-index: 0;
+  position: relative;
+}
+.container.about .content .people .person:hover,
+.container.about .content .people .person:focus {
+  box-shadow: 0px 0px 10px rgba(85, 88, 105, 0.2);
+}
+.container.about .content .people .person img {
+  width: 155px;
+  height: 155px;
+  border-radius: 100%;
+  position: absolute;
+  top: -97px;
+}
+.container.about .content .people .person .person-img-decoration {
+  box-shadow: 0px 0px 10px rgba(85, 88, 105, 0.05);
+  background-color: #FFFFFF;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  position: absolute;
+  top: -102px;
+  border: 12px solid #FFFFFF;
+}
+.container.about .content .people .person .person-img-decoration::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: -17.5%;
+  width: 135%;
+  height: 7%;
+  z-index: -1;
+  background-color: #FFFFFF;
+  border-bottom: solid 2px #78849E;
+}
+@media (min-width: 300px) {
+  .container.about .content .people .person .person-img-decoration::before {
+    width: 200%;
+    left: -50%;
+  }
+}
+.container.about .content .people .person .person-img-decoration::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 60%;
+  border-bottom-right-radius: 500px;
+  border-bottom-left-radius: 500px;
+  border: solid 2px #78849E;
+  border-top: none;
+  z-index: -2;
+}
+.container.about .content .people .person .person-info {
+  margin-top: 70px;
+  height: 160px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  pointer-events: none;
+  transition: height 0.5s ease-out;
+}
+.container.about .content .people .person .person-info.expanded::after {
+  content: "Collapse ⇡";
+}
+.container.about .content .people .person .person-info::after {
+  content: "Read More ⇣";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 5px;
+  pointer-events: all;
   cursor: pointer;
-  content: "SAFE";
-  font-size: 2rem;
-  letter-spacing: 0.2rem;
-  border: 1px solid #FFFFFF;
-  padding: 5px;
-  margin-right: 5px;
-  vertical-align: middle;
+  color: #78849E;
 }
-body {
-  font-family: Gibson, Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
-  background-color: #F7F7FA;
+.container.about .content .people .person .person-info h3,
+.container.about .content .people .person .person-info h4,
+.container.about .content .people .person .person-info h5 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+}
+.container.about .content .people .person .person-info h4 {
+  font-size: 1rem;
+}
+.container.about .content .people .person .person-info h5 {
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: italic;
+}
+.container.about .content .people .person .person-info .person-description {
+  padding: 10px 15px 0 15px;
+}
+.container.about .content .people .person .person-info .person-description p {
+  color: #555869;
 }
