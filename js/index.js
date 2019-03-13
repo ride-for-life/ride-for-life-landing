@@ -162,9 +162,11 @@ const carousels = document.querySelectorAll('.carousel-container');
 carousels.forEach(carousel => new Carousel(carousel));
 
 // Lazy image loading
-var lazyLoadInstance = new LazyLoad({
-    elements_selector: "img"
-});
+if (typeof LazyLoad !== 'undefined') {
+    var lazyLoadInstance = new LazyLoad({
+        elements_selector: "img"
+    });
+}
 
 // about person expand/contract
 const personInfos = document.querySelectorAll('.people .person .person-info');
@@ -182,4 +184,12 @@ personInfos.forEach(elem => {
         }
         expanded = !expanded;
     });
+});
+
+// nav toggle
+const navBurger =  document.querySelector('header .nav .nav-burger'),
+      navLinks = document.querySelector('header .nav .nav-links');
+navBurger.addEventListener('click', (event) => {
+    event.preventDefault();
+    navLinks.classList.toggle('nav-dropdown-show');
 });

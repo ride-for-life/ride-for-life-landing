@@ -242,6 +242,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 .carousel-container .carousel-indicators .carousel-indicator {
   margin: 0 5px;
@@ -263,6 +264,7 @@ body {
   background-color: #F7F7FA;
 }
 body .container {
+  padding-top: 50px;
   overflow-x: hidden;
   max-width: 880px;
   margin: auto;
@@ -387,6 +389,176 @@ a.safe-logo::before {
   margin-right: 5px;
   vertical-align: middle;
 }
+header.nav-bar {
+  padding: 8px 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  box-shadow: 0 0 5px #555869;
+  z-index: 5;
+}
+header.nav-bar .nav {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+header.nav-bar .nav .logo {
+  color: #78849E;
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: bold;
+}
+header.nav-bar .nav .nav-dropdown-hide {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-dropdown-hide {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+header.nav-bar .nav .nav-dropdown-show {
+  visibility: visible;
+  height: 200px;
+  opacity: 1;
+  display: flex;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-dropdown-show {
+    height: auto;
+  }
+}
+header.nav-bar .nav .nav-links {
+  display: flex;
+  transition: height 0.2s, opacity 0.3s ease-out;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  z-index: 5;
+  box-shadow: 0 5px 5px rgba(85, 88, 105, 0.3);
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-links {
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    position: initial;
+  }
+}
+header.nav-bar .nav .nav-links a {
+  color: #555869;
+  font-weight: bold;
+  font-size: 1.2rem !important;
+  margin: 10px 0;
+  width: 500px;
+  max-width: 100%;
+  text-align: center;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-links a {
+    width: auto;
+    margin: 0;
+    margin-right: 30px;
+  }
+  header.nav-bar .nav .nav-links a:last-child {
+    margin-right: 0;
+  }
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-links a.login,
+  header.nav-bar .nav .nav-links a.signup {
+    padding: 10px 12px !important;
+  }
+}
+header.nav-bar .nav .nav-links a.login {
+  color: #78849E;
+  background-color: #78849E;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 3px solid #78849E;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px #8792a9;
+  box-sizing: border-box;
+  vertical-align: middle;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 #78849E;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-links a.login {
+    font-size: 1.4rem;
+    padding: 14px 30px;
+  }
+}
+header.nav-bar .nav .nav-links a.login:hover {
+  color: #78849E;
+  background-color: #78849E;
+  box-shadow: inset 0 0 0 #78849E;
+  background-image: none;
+}
+header.nav-bar .nav .nav-links a.login:hover,
+header.nav-bar .nav .nav-links a.login:focus {
+  box-shadow: inset 0 0 15px #78849E;
+  color: #FFFFFF;
+}
+header.nav-bar .nav .nav-links a.signup {
+  color: #FFFFFF;
+  background-color: #4C6A2D;
+  padding: 12px 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 3px solid #4C6A2D;
+  transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
+  cursor: pointer;
+  box-shadow: inset 0 0 15px #597c35;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-links a.signup {
+    font-size: 1.4rem;
+    padding: 14px 30px;
+  }
+}
+header.nav-bar .nav .nav-links a.signup:hover {
+  color: #4C6A2D;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 #4C6A2D;
+  background-image: none;
+}
+header.nav-bar .nav .nav-burger div {
+  background-color: #555869;
+  width: 33px;
+  height: 5px;
+  display: block;
+  margin-bottom: 5px;
+}
+@media (min-width: 550px) {
+  header.nav-bar .nav .nav-burger div {
+    display: none;
+  }
+}
 .container.fourohfour .content {
   height: 800px;
 }
@@ -397,7 +569,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #78849E;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -407,15 +578,14 @@ a.safe-logo::before {
   vertical-align: middle;
   width: 400px;
   max-width: 100%;
-  height: 60px;
   font-size: 1.2rem;
-  line-height: 2.4rem;
   margin: 20px 0;
+  padding: 14px 30px;
+  line-height: 1.5;
 }
 @media (min-width: 550px) {
   .container.fourohfour a.home {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -427,9 +597,7 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.fourohfour a.home {
-    height: 80px;
     font-size: 1.6rem;
-    line-height: 3.2rem;
   }
 }
 .container.home .cta .cta-buttons {
@@ -458,7 +626,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -471,7 +638,6 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.home .cta .cta-buttons .signup {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -493,7 +659,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #78849E;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -505,7 +670,6 @@ a.safe-logo::before {
 @media (min-width: 550px) {
   .container.home .cta .cta-buttons .login {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -691,7 +855,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -701,15 +864,14 @@ a.safe-logo::before {
   vertical-align: middle;
   width: 400px;
   max-width: 100%;
-  height: 60px;
   font-size: 1.2rem;
-  line-height: 2.4rem;
   margin: 20px 0;
+  padding: 14px 30px;
+  line-height: 1.5;
 }
 @media (min-width: 550px) {
   .container.home a.request {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -721,9 +883,7 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.home a.request {
-    height: 80px;
     font-size: 1.6rem;
-    line-height: 3.2rem;
   }
 }
 .container.about h1,
@@ -769,7 +929,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #78849E;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -779,15 +938,14 @@ a.safe-logo::before {
   vertical-align: middle;
   width: 400px;
   max-width: 100%;
-  height: 60px;
   font-size: 1.2rem;
-  line-height: 2.4rem;
   margin: 20px 0;
+  padding: 14px 30px;
+  line-height: 1.5;
 }
 @media (min-width: 550px) {
   .container.about .cta a.how-it-works {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -799,9 +957,7 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.about .cta a.how-it-works {
-    height: 80px;
     font-size: 1.6rem;
-    line-height: 3.2rem;
   }
 }
 .container.about .cta a.learn-more {
@@ -811,7 +967,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #555869;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -821,15 +976,14 @@ a.safe-logo::before {
   vertical-align: middle;
   width: 400px;
   max-width: 100%;
-  height: 60px;
   font-size: 1.2rem;
-  line-height: 2.4rem;
   margin: 20px 0;
+  padding: 14px 30px;
+  line-height: 1.5;
 }
 @media (min-width: 550px) {
   .container.about .cta a.learn-more {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -841,9 +995,7 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.about .cta a.learn-more {
-    height: 80px;
     font-size: 1.6rem;
-    line-height: 3.2rem;
   }
 }
 .container.about .cta a.sign-up {
@@ -853,7 +1005,6 @@ a.safe-logo::before {
   text-align: center;
   border-radius: 10px;
   font-size: 1rem;
-  line-height: 1.5rem;
   font-weight: bold;
   border: 3px solid #4C6A2D;
   transition: color 0.3s, background-color 0.3s, box-shadow 0.4s;
@@ -863,15 +1014,14 @@ a.safe-logo::before {
   vertical-align: middle;
   width: 400px;
   max-width: 100%;
-  height: 60px;
   font-size: 1.2rem;
-  line-height: 2.4rem;
   margin: 20px 0;
+  padding: 14px 30px;
+  line-height: 1.5;
 }
 @media (min-width: 550px) {
   .container.about .cta a.sign-up {
     font-size: 1.4rem;
-    line-height: 2rem;
     padding: 14px 30px;
   }
 }
@@ -883,9 +1033,7 @@ a.safe-logo::before {
 }
 @media (min-width: 300px) {
   .container.about .cta a.sign-up {
-    height: 80px;
     font-size: 1.6rem;
-    line-height: 3.2rem;
   }
 }
 .container.about .content .people {
