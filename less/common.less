@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
   background-color: @cloud;
   .container {
+    padding-top: 50px;
     overflow-x: hidden;
     max-width: 880px;
     margin: auto;
@@ -117,5 +118,118 @@ a.safe-logo {
     padding: 5px;
     margin-right: 5px;
     vertical-align: middle;
+  }
+}
+
+header.nav-bar {
+  padding: 8px 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  box-shadow: 0 0 5px @evening;
+  z-index: 5;
+  .nav {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    .logo {
+      color: @thunderhead;
+      font-size: 2.2rem;
+      font-style: italic;
+      font-weight: bold;
+    }
+    .nav-dropdown-hide {
+      visibility: hidden;
+      height: 0;
+      opacity: 0;
+      @media @tablet {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    .nav-dropdown-show {
+      visibility: visible;
+      height: 200px;
+      opacity: 1;
+      display: flex;
+      @media @tablet {
+        height: auto;
+      }
+    }
+    .nav-links {
+      display: flex;
+      transition: height 0.2s, opacity 0.3s ease-out;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      padding: 0 5%;
+      box-sizing: border-box;
+      top: 50px;
+      left: 0;
+      background-color: white;
+      z-index: 5;
+      box-shadow: 0 5px 5px fade(@evening, 30%);
+      @media @tablet {
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        position: initial;
+      }
+      a {
+        color: @evening;
+        font-weight: bold;
+        font-size: 1.2rem !important;
+        margin: 10px 0;
+        width: 500px;
+        max-width: 100%;
+        text-align: center;
+        @media @tablet {
+          width: auto;
+          margin: 0;
+          margin-right: 30px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+      a.login, a.signup {
+        @media @tablet {
+          padding: 10px 12px !important;
+        }
+      }
+      a.login {
+        .button(@thunderhead, @thunderhead);
+        background-color: @white;
+        box-shadow: inset 0 0 0 @thunderhead;
+        &:hover, &:focus {
+          box-shadow: inset 0 0 15px @thunderhead;
+          color: @white;
+        }
+      }
+      a.signup {
+        .button(@forest, @white);
+      }
+    }
+    .nav-burger {
+      div {
+        background-color: @evening;
+        width: 33px;
+        height: 5px;
+        display: block;
+        margin-bottom: 5px;
+        @media @tablet {
+          display: none;
+        }
+      }
+    }
   }
 }
