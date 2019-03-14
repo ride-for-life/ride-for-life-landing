@@ -1,9 +1,13 @@
 .container.home {
   .cta {
+    p {
+      max-width: 700px;
+      line-height: 1.5;
+    }
     .cta-buttons {
       display: flex;
       flex-direction: column-reverse;
-      margin: 20px 0;
+      margin: 10px 0;
       padding: 10px 0;
       width: 100%;
       justify-content: space-around;
@@ -166,8 +170,8 @@
         }
         .how-img {
           width: 100%;
-          max-width: 350px;
-          // max-height: 400px;
+          // max-width: 300px;
+          max-height: 400px;
           border-radius: 10px;
           overflow: hidden;
           border: 8px solid @thunderhead;
@@ -180,6 +184,7 @@
             width: 100%;
             min-height: 100%;
             min-width: 100%;
+            object-fit: cover;
           }
         }
       }
